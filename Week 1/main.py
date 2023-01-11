@@ -1,10 +1,3 @@
-print('Hello World')
-print(3 + 5)
-message = 'Hello'
-print(message)
-pi = True
-print(pi)
-print(type(pi))
-print(type(message))
-a = int(input('Enter a number \n'))
-print(2 * a)
+temp_c = float(input('Enter the Temperature in Celcius: '))
+temp_f = 1.8 * temp_c + 32
+print('The temperature in Fahrenheit ', temp_f)
