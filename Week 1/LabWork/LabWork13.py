@@ -1,0 +1,5 @@
+a = float(input("First coefficient: "))
+b = float(input("Second coefficient: "))
+c = float(input("Third coefficient: "))
+disc = str((b ** 2) - 4 * a * c)
+print("Discriminant: " + disc)

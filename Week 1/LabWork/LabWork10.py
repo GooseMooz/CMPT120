@@ -1,0 +1,5 @@
+feet = float(input("Feet: "))
+inch = float(input("Inches: "))
+m = str(feet / 3.281)
+sm = str(inch * 2.54)
+print(m + " Meters and " + sm + " Centimeters")
