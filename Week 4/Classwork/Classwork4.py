@@ -4,6 +4,5 @@ for i in range(4, -5, -1):
         if j - 4 <= i <= -j + 4:
             print('*', end='')
         print('*', end='')
-
     print()
     i += 1
