@@ -11,6 +11,6 @@ while i < n:
             if cnt % j == 0:
                 counter += 1
         if counter == 1:
-            print(cnt)
+            print(int(cnt))
             break
     i += 1
