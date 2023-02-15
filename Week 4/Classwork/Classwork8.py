@@ -1,5 +1,3 @@
-import math
-
 cnt = 0
 num = 1
 while cnt < 3:
