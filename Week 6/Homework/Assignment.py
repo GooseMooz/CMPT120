@@ -29,59 +29,32 @@ def decimalToBinary(n):
 
 
 def binaryAddition(num1, num2):
-    if len(num1) <= len(num2):
-        small = num1
-        big = num2
-    else:
-        small = num2
-        big = num1
-
-    carried = False
-    counter = 1
-    out = ''
-    for i in range(len(small)):
-        if num1[-counter] == num2[-counter] == '0':
-            if carried:
-                counter += 1
-                out = '1' + out
-                carried = False
-            else:
-                counter += 1
-                out = '0' + out
-        elif num1[-counter] + num2[-counter] == '01' or num1[-counter] + num2[-counter] == '10':
-            if carried:
-                counter += 1
-                out = '0' + out
-            else:
-                counter += 1
-                out = '1' + out
-        elif num1[-counter] == num2[-counter] == '1':
-            if carried:
-                counter += 1
-                out = '1' + out
-            else:
-                counter += 1
-                carried = True
-                out = '0' + out
-    if len(num1) == len(num2):
-        if carried:
-            out = '1' + out
-        return out
-    if carried:
-        for i in range(len(big[:-counter]) + 1):
-            if big[-counter] == '1':
-                counter += 1
-                out = '0' + out
-            else:
-                counter += 1
-                out = '1' + out
-                out = big[:-counter] + out
-                return out
-        out = '1' + out
-        return out
-    else:
-        out = big[:-counter] + out
-        return out
+    i = len(num1) - 1
+    j = len(num2) - 1
+    answer = ''
+    carried = 0
+    while i > -1 and j > -1:
+        a = ord(num1[i]) - 48
+        b = ord(num2[j]) - 48
+        add = a + b + carried
+        answer = chr((add % 2) + 48) + answer
+        carried = 1 if add == 2 or add == 3 else 0
+        i -= 1
+        j -= 1
+    while i > -1:
+        a = ord(num1[i]) - 48
+        add = a + carried
+        answer = chr((add % 2) + 48) + answer
+        carried = 1 if add == 2 or add == 3 else 0
+        i -= 1
+    while j > -1:
+        b = ord(num2[j]) - 48
+        add = b + carried
+        answer = chr((add % 2) + 48) + answer
+        carried = 1 if add == 2 or add == 3 else 0
+        j -= 1
+    answer = '' + answer if carried == 0 else '1' + answer
+    return answer
 
 
 def binaryToDecimal(string):
